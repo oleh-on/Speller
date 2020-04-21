@@ -9,7 +9,7 @@ Checker::Checker(const std::string& name) : _name(name) {
 }
 
 void Checker::parse_dictionary(const std::string& filename) {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
     std::ifstream dictionary(filename);
     std::string token;
     if(dictionary.is_open()){
@@ -21,7 +21,7 @@ void Checker::parse_dictionary(const std::string& filename) {
     else {
         std::cout << "Dictionary is NOT open!" << std::endl;
     }
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::steady_clock::now();
     duration_dictionary = end - start;
 }
 
@@ -37,13 +37,13 @@ void Checker::parse(std::ifstream& input, std::ofstream& wrong_words){
     while (input >> token) {
         prepare_token(token);
         if (!token.empty()) {
-            auto start = std::chrono::high_resolution_clock::now();
+            auto start = std::chrono::steady_clock::now();
             if (!check(token)) {
                 count_wrong++;
                 wrong_words << token << std::endl;
             }
             count_all++;
-            auto end = std::chrono::high_resolution_clock::now();
+            auto end = std::chrono::steady_clock::now();
             duration_check += end - start;
         }
     }

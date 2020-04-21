@@ -11,6 +11,3 @@ void VectorChecker::add(const std::string& token) {
 bool VectorChecker::check(const std::string& token){
     return  std::binary_search(begin(words), end(words), token);
 }
-
-
-

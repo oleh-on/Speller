@@ -63,10 +63,7 @@ bool AVL::check(const std::string& value) {
 }
 
 Node* AVL::check(Node* node, const std::string& value) {
-    if (node == nullptr) {
-        return 0;
-    }
-    else {
+    if (node) {
         if (node->key == value) {
             return node;
         }
@@ -76,6 +73,8 @@ Node* AVL::check(Node* node, const std::string& value) {
         else if (node->key < value) {
             check(node->right, value);
         }
+    } else {
+        return 0;
     }
 }
 
