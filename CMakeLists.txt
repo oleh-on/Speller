@@ -1,8 +1,10 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.4)
 project(Speller)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-add_executable(Speller main.cpp VectorChecker.cpp HashMapChecker.cpp Checker.cpp HashTable.cpp AVL.cpp)
-
-#target_compile_options(Speller PRIVATE "-Wall")
+set(SOURCES src/sources/main.cpp src/sources/VectorChecker.cpp
+        src/sources/HashMapChecker.cpp src/sources/Checker.cpp
+        src/sources/HashTable.cpp src/sources/AVL.cpp)
+add_executable(Speller ${SOURCES})
+target_include_directories(${PROJECT_NAME} PRIVATE src/headers)
