@@ -58,11 +58,13 @@ float Checker::getDurationDictionary() const {
 }
 
 void Checker::summary() const {
-    std::cout << _name << ':'
-              << getDurationDictionary() << ' '
-              << getDurationCheck() << ' '
-              << getCountAll() << ' '
-              << getCountWrong() << std::endl;
+    std::cout << std::fixed << std::setprecision(0);
+    std::cout << _name << ':' <<  '\n'
+              << "Dictionary loading time: " << getDurationDictionary() << " milliseconds" << '\n'
+              << "Total time for checking all texts: " << getDurationCheck() << " milliseconds" <<'\n'
+              << "Checked words: " << getCountAll() << '\n'
+              << "Wrong words: " << getCountWrong() << std::endl;
+    std::cout << '\n';
 }
 
 void Checker::prepare_token(std::string &token) {

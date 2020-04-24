@@ -29,7 +29,7 @@ int main() {
 
     std::vector<std::shared_ptr<Checker>> structures = {
             std::make_shared<VectorChecker>("Vector"),
-            std::make_shared<AVL>("Tree"),
+            std::make_shared<AVL>("AVL_tree"),
             std::make_shared<HashMapChecker>("HashMap"),
             std::make_shared<HashTable>(100000, "HashTable")
     };
